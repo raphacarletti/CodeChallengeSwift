@@ -45,3 +45,11 @@ struct MoviesGenresAPIFields {
 struct NotificationUserInforKey {
     static let movieId: String = "movieId"
 }
+
+enum StoryboardName: String {
+    case Movies = "Movies"
+}
+
+enum ViewControllerName: String {
+    case MovieDetail = "MovieDetailViewController"
+}

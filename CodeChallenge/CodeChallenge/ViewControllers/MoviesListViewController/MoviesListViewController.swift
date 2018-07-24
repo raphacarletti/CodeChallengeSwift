@@ -50,7 +50,9 @@ class MoviesListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         NotificationCenter.default.addObserver(self, selector: #selector(getUpcomingMovies), name: .FetchUpcomingMoviesDidFinish, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(getUpcomingMovies), name: .MovieImageFinishDownload, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(movieImageFinishDownload(_:)), name: .MovieImageFinishDownload, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -61,7 +63,7 @@ class MoviesListViewController: UIViewController {
     func filterMovies() {
         if let searchTerm = self.searchTerm {
             self.filteredMovies = self.movies.filter({ (movie) -> Bool in
-                return movie.title.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil)nt.contains(searchTerm)
+                return movie.title.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil).contains(searchTerm)
             })
         } else {
             self.filteredMovies = self.movies
@@ -81,17 +83,21 @@ class MoviesListViewController: UIViewController {
         }
         
         self.movies = APIUpcomingMoviesService.getSharedInstance().movies
-        if let index = self.movies.index(where: { (movie) -> Bool in
-            return movie.id == movieId
-        }) {
-            self.moviesListTableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-        }
+        self.moviesListTableView.reloadData()
     }
 
 }
 
 extension MoviesListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
+        let movie = self.filteredMovies[indexPath.row]
+        let storyboard = UIStoryboard(name: .Movies)
+        if let viewController = storyboard.instantiateViewController(vcName: .MovieDetail) as? MovieDetailViewController {
+            viewController.movie = movie
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
 }
 
 extension MoviesListViewController: UITableViewDataSource {
@@ -120,18 +126,6 @@ extension MoviesListViewController: UITableViewDataSource {
 extension MoviesListViewController: UISearchBarDelegate {
     func searchBarShouldEndEditing(_ searchBar: UISearchBar) -> Bool {
         return true
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        self.searchTerm = nil
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchTerm = searchBar.text else {
-            return
-        }
-        let searchTermDiacriticInsensitive = searchTerm.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: nil)
-        self.searchTerm = searchTermDiacriticInsensitive
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

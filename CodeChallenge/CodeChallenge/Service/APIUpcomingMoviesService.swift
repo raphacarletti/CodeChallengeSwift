@@ -34,6 +34,7 @@ class APIUpcomingMoviesService {
     
     func getUpcomingMovies() {
         self.currentPage += 1
+        self.isLoadingMoreMovies = true
         let parameters: [String: Any] = [APIParameters.apiKey: APIConstants.key, APIParameters.page: self.currentPage]
         Alamofire.request("\(APIConstants.baseUrl)\(APIConstants.getUpcomingMovies)", method: .get, parameters: parameters).responseJSON { (response) in
             guard let valueDict = response.value as? [String: Any], let resultsArrays = valueDict[UpcomingMoviesAPIFields.results] as? [[String: Any]] else {
@@ -49,7 +50,8 @@ class APIUpcomingMoviesService {
             if let totalPages = valueDict[UpcomingMoviesAPIFields.totalPages] as? Int {
                 self.totalPages = totalPages
             }
-
+            
+            self.isLoadingMoreMovies = false
             DispatchQueue.main.async {
                 NotificationCenter.default.post(name: .FetchUpcomingMoviesDidFinish, object: nil)
             }
