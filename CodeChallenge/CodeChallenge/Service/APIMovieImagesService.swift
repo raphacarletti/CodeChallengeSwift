@@ -61,7 +61,7 @@ class APIMovieImagesService {
                         movie.image = image
                         
                         DispatchQueue.main.async {
-                            NotificationCenter.default.post(name: .MovieImageFinishDownload, object: nil, userInfo: [NotificationUserInforKey.movieId: movie.id])
+                            NotificationCenter.default.post(name: .MovieImageFinishDownload, object: nil)
                         }
                     }
                 }

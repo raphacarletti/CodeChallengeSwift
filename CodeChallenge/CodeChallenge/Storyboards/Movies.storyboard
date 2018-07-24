@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cIi-co-Ac1">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina4_0" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController id="5Gg-2J-qwX" customClass="MoviesListViewController" customModule="CodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3NZ-tb-H9C">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fNk-A1-Ctc">
-                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <rect key="frame" x="0.0" y="32" width="568" height="288"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -47,17 +47,17 @@
             <objects>
                 <viewController storyboardIdentifier="MovieDetailViewController" id="Vdh-f1-IyX" customClass="MovieDetailViewController" customModule="CodeChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4z7-YS-cmS">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ant-Man" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s8F-5a-p1p">
-                                <rect key="frame" x="8" y="80" width="398" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="40" width="344" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mYM-CQ-t7T">
-                                <rect key="frame" x="16" y="117" width="382" height="200"/>
+                                <rect key="frame" x="360" y="40" width="200" height="272"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="0fF-86-JdV"/>
                                     <constraint firstAttribute="width" constant="200" id="brM-G8-4dm"/>
@@ -87,37 +87,37 @@
                                 </variation>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Release Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NRx-lh-oDw">
-                                <rect key="frame" x="16" y="333" width="105" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="71" width="94" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20-08-2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZCq-VO-n6e">
-                                <rect key="frame" x="129" y="333" width="95" height="21"/>
+                                <rect key="frame" x="110" y="69.5" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Genre:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIG-wy-M5B">
-                                <rect key="frame" x="16" y="370" width="51" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="8" y="97" width="46" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4e-5g-rLC">
-                                <rect key="frame" x="75" y="370" width="49" height="21"/>
+                                <rect key="frame" x="62" y="95.5" width="49" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wQt-rw-RbM">
-                                <rect key="frame" x="16" y="407" width="382" height="21"/>
+                                <rect key="frame" x="8" y="123" width="344" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CW9-4T-lMV">
-                                <rect key="frame" x="16" y="444" width="382" height="276"/>
+                                <rect key="frame" x="8" y="152" width="344" height="160"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -127,9 +127,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="mYM-CQ-t7T" firstAttribute="leading" secondItem="CW9-4T-lMV" secondAttribute="trailing" constant="8" id="0eu-y9-l4c"/>
+                            <constraint firstItem="ZCq-VO-n6e" firstAttribute="centerY" secondItem="NRx-lh-oDw" secondAttribute="centerY" id="1Zi-TZ-FZm"/>
                             <constraint firstItem="s8F-5a-p1p" firstAttribute="leading" secondItem="50T-um-3KU" secondAttribute="leading" constant="8" id="3Xh-Tx-nFH"/>
                             <constraint firstItem="wQt-rw-RbM" firstAttribute="top" secondItem="ZCq-VO-n6e" secondAttribute="bottom" constant="8" id="3cK-La-cPx"/>
                             <constraint firstItem="mYM-CQ-t7T" firstAttribute="top" secondItem="50T-um-3KU" secondAttribute="top" constant="8" id="5Zu-nM-4Vw"/>
+                            <constraint firstItem="u4e-5g-rLC" firstAttribute="centerY" secondItem="NIG-wy-M5B" secondAttribute="centerY" id="68m-Eb-1FG"/>
+                            <constraint firstItem="ZCq-VO-n6e" firstAttribute="centerY" secondItem="NRx-lh-oDw" secondAttribute="centerY" id="7Dw-5o-ILJ"/>
+                            <constraint firstItem="u4e-5g-rLC" firstAttribute="centerY" secondItem="NIG-wy-M5B" secondAttribute="centerY" id="7M4-YP-iAd"/>
+                            <constraint firstItem="u4e-5g-rLC" firstAttribute="centerY" secondItem="NIG-wy-M5B" secondAttribute="centerY" id="7r9-CC-B6V"/>
                             <constraint firstItem="50T-um-3KU" firstAttribute="trailing" secondItem="mYM-CQ-t7T" secondAttribute="trailing" constant="16" id="8Ls-Ww-QAf"/>
                             <constraint firstItem="NIG-wy-M5B" firstAttribute="top" secondItem="NRx-lh-oDw" secondAttribute="bottom" constant="8" id="BCT-EZ-u8J"/>
                             <constraint firstItem="NIG-wy-M5B" firstAttribute="top" secondItem="NRx-lh-oDw" secondAttribute="bottom" constant="8" id="BXe-pU-b7x"/>
@@ -187,6 +192,7 @@
                             <constraint firstItem="wQt-rw-RbM" firstAttribute="leading" secondItem="50T-um-3KU" secondAttribute="leading" constant="16" id="rTO-Yb-QLa"/>
                             <constraint firstItem="u4e-5g-rLC" firstAttribute="leading" secondItem="NIG-wy-M5B" secondAttribute="trailing" constant="8" id="rjf-mX-QCv"/>
                             <constraint firstItem="mYM-CQ-t7T" firstAttribute="leading" secondItem="wQt-rw-RbM" secondAttribute="trailing" constant="8" id="s7x-pR-YTR"/>
+                            <constraint firstItem="ZCq-VO-n6e" firstAttribute="centerY" secondItem="NRx-lh-oDw" secondAttribute="centerY" id="teD-Fm-2om"/>
                             <constraint firstItem="wQt-rw-RbM" firstAttribute="top" secondItem="NIG-wy-M5B" secondAttribute="bottom" constant="8" id="tie-Xv-CIc"/>
                             <constraint firstItem="CW9-4T-lMV" firstAttribute="top" secondItem="wQt-rw-RbM" secondAttribute="bottom" constant="8" id="vfK-cK-GfU"/>
                             <constraint firstItem="ZCq-VO-n6e" firstAttribute="top" secondItem="NRx-lh-oDw" secondAttribute="top" id="wk7-9P-BrP"/>
@@ -224,6 +230,9 @@
                                 <exclude reference="H2T-bs-MVg"/>
                                 <exclude reference="eWY-tQ-q6o"/>
                                 <exclude reference="yS4-Kr-RRc"/>
+                                <exclude reference="68m-Eb-1FG"/>
+                                <exclude reference="7M4-YP-iAd"/>
+                                <exclude reference="7r9-CC-B6V"/>
                                 <exclude reference="X2O-9e-wpN"/>
                                 <exclude reference="Zlj-bV-kOR"/>
                                 <exclude reference="f8Z-mV-YJi"/>
@@ -237,10 +246,13 @@
                                 <exclude reference="nNX-En-er6"/>
                                 <exclude reference="rTO-Yb-QLa"/>
                                 <exclude reference="tie-Xv-CIc"/>
+                                <exclude reference="1Zi-TZ-FZm"/>
+                                <exclude reference="7Dw-5o-ILJ"/>
                                 <exclude reference="Ctt-6p-nwX"/>
                                 <exclude reference="bla-F9-dLt"/>
                                 <exclude reference="cj3-Jn-vGO"/>
                                 <exclude reference="oFy-2t-cvY"/>
+                                <exclude reference="teD-Fm-2om"/>
                                 <exclude reference="wk7-9P-BrP"/>
                                 <exclude reference="xLP-Jz-q7r"/>
                                 <exclude reference="HKj-mR-ceK"/>
@@ -272,11 +284,13 @@
                                 <include reference="jxZ-n4-u6w"/>
                                 <include reference="BCT-EZ-u8J"/>
                                 <include reference="CAt-ro-RWL"/>
-                                <include reference="X2O-9e-wpN"/>
+                                <include reference="7r9-CC-B6V"/>
+                                <exclude reference="X2O-9e-wpN"/>
                                 <include reference="Zlj-bV-kOR"/>
                                 <include reference="n0e-Sz-jgv"/>
                                 <include reference="nNX-En-er6"/>
-                                <include reference="cj3-Jn-vGO"/>
+                                <include reference="1Zi-TZ-FZm"/>
+                                <exclude reference="cj3-Jn-vGO"/>
                                 <include reference="xLP-Jz-q7r"/>
                                 <include reference="QgS-F4-MfI"/>
                                 <include reference="cbi-sO-4oZ"/>
@@ -301,12 +315,14 @@
                                 <include reference="Kq5-Ct-qQG"/>
                                 <include reference="BXe-pU-b7x"/>
                                 <include reference="eWY-tQ-q6o"/>
-                                <include reference="f8Z-mV-YJi"/>
+                                <include reference="68m-Eb-1FG"/>
+                                <exclude reference="f8Z-mV-YJi"/>
                                 <include reference="gWS-ca-yDa"/>
                                 <include reference="mAj-fu-XUQ"/>
                                 <include reference="tie-Xv-CIc"/>
                                 <include reference="Ctt-6p-nwX"/>
-                                <include reference="wk7-9P-BrP"/>
+                                <include reference="teD-Fm-2om"/>
+                                <exclude reference="wk7-9P-BrP"/>
                                 <include reference="HKj-mR-ceK"/>
                                 <include reference="Qwi-hj-7bf"/>
                                 <include reference="IPx-w8-nqD"/>
@@ -328,12 +344,14 @@
                                 <include reference="gdu-KI-zgl"/>
                                 <include reference="H2T-bs-MVg"/>
                                 <include reference="yS4-Kr-RRc"/>
-                                <include reference="moH-Kk-xei"/>
+                                <include reference="7M4-YP-iAd"/>
+                                <exclude reference="moH-Kk-xei"/>
                                 <include reference="rjf-mX-QCv"/>
                                 <exclude reference="3cK-La-cPx"/>
                                 <include reference="WK9-jo-QjO"/>
                                 <include reference="rTO-Yb-QLa"/>
-                                <include reference="bla-F9-dLt"/>
+                                <include reference="7Dw-5o-ILJ"/>
+                                <exclude reference="bla-F9-dLt"/>
                                 <include reference="oFy-2t-cvY"/>
                                 <include reference="NoV-cT-FOb"/>
                                 <include reference="cyY-t2-O6O"/>
@@ -350,6 +368,7 @@
                         <outlet property="overviewInfoLabel" destination="wQt-rw-RbM" id="cVe-gX-Qb2"/>
                         <outlet property="overviewTextView" destination="CW9-4T-lMV" id="ByJ-2s-h00"/>
                         <outlet property="posterImage" destination="mYM-CQ-t7T" id="LIU-PD-hF3"/>
+                        <outlet property="releadeDateInfo" destination="NRx-lh-oDw" id="IaC-lb-0Dw"/>
                         <outlet property="releaseDateLabel" destination="ZCq-VO-n6e" id="R15-cN-Tnw"/>
                         <outlet property="widthLandscapeImageConstraintRxC" destination="brM-G8-4dm" id="aAu-Iz-dkY"/>
                         <outlet property="widthtLandscapeImageConstraintCxC" destination="gcZ-Bw-yAX" id="G4d-Ub-DMK"/>
@@ -365,7 +384,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cIi-co-Ac1" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="47P-eL-5kg">
-                        <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="0.0" width="568" height="32"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

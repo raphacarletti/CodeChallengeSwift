@@ -16,11 +16,20 @@ class MovieDetailViewController: UIViewController {
             self.posterImage.contentMode = .scaleAspectFit
         }
     }
+    @IBOutlet weak var releadeDateInfo: UILabel! {
+        didSet {
+            self.releadeDateInfo.textColor = UIColor.mediumGrayMovieDetail
+        }
+    }
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var overviewTextView: UITextView!
     @IBOutlet weak var overviewInfoLabel: UILabel!
-    @IBOutlet weak var genreInfoLabel: UILabel!
+    @IBOutlet weak var genreInfoLabel: UILabel! {
+        didSet {
+            self.genreInfoLabel.textColor = UIColor.mediumGrayMovieDetail
+        }
+    }
     
     //Image constraints
     @IBOutlet weak var heightPortraitImageConstraint: NSLayoutConstraint!
