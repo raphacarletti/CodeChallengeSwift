@@ -44,12 +44,13 @@ class MoviesListViewController: UIViewController {
         searchController.searchBar.delegate = self
         
         APIUpcomingMoviesService.getSharedInstance().getAllMovieGenres {
-            APIUpcomingMoviesService.getSharedInstance().getUpcomingMovies()
+            APIUpcomingMoviesService.getSharedInstance().getUpcomingMovies(completion: { (movies) in
+                self.handleGetUpcomingMovies(movies: movies)
+            })
         }
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        NotificationCenter.default.addObserver(self, selector: #selector(getUpcomingMovies), name: .FetchUpcomingMoviesDidFinish, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(movieImageFinishDownload(_:)), name: .MovieImageFinishDownload, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: .UIKeyboardWillShow, object: nil)
@@ -58,6 +59,18 @@ class MoviesListViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func handleGetUpcomingMovies(movies: [Movie]?) {
+        if let movies = movies {
+            self.movies.append(contentsOf: movies)
+        } else {
+            let alert = UIAlertController(title: "Error", message: "Error fetching upcoming movies", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Ok", style: .default, handler: nil)
+            alert.addAction(action)
+            self.present(alert, animated: true, completion: nil)
+        }
+        self.moviesListTableView.tableFooterView = nil
     }
     
     func filterMovies() {
@@ -71,18 +84,7 @@ class MoviesListViewController: UIViewController {
         self.moviesListTableView.reloadData()
     }
     
-    @objc func getUpcomingMovies() {
-        self.movies = APIUpcomingMoviesService.getSharedInstance().movies
-        self.moviesListTableView.tableFooterView = nil
-        self.moviesListTableView.reloadData()
-    }
-    
     @objc func movieImageFinishDownload(_ notification: Notification) {
-        guard let userInfo = notification.userInfo as? [String: Any], let movieId = userInfo[NotificationUserInforKey.movieId] as? Int else {
-            return
-        }
-        
-        self.movies = APIUpcomingMoviesService.getSharedInstance().movies
         self.moviesListTableView.reloadData()
     }
 
@@ -117,7 +119,9 @@ extension MoviesListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == self.movies.count-1 && APIUpcomingMoviesService.getSharedInstance().canLoadMorePage() && self.searchTerm == nil {
-            APIUpcomingMoviesService.getSharedInstance().getUpcomingMovies()
+            APIUpcomingMoviesService.getSharedInstance().getUpcomingMovies { (movies) in
+                self.handleGetUpcomingMovies(movies: movies)
+            }
             self.moviesListTableView.tableFooterView = LoadingMoreView(frame: CGRect(x: 0, y: 0, width: self.moviesListTableView.frame.width, height: 56))
         }
     }

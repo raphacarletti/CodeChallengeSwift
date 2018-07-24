@@ -343,11 +343,16 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="genreInfoLabel" destination="NIG-wy-M5B" id="jmt-fS-c6e"/>
                         <outlet property="genreLabel" destination="u4e-5g-rLC" id="od9-j9-dsx"/>
+                        <outlet property="heightPortraitImageConstraint" destination="0fF-86-JdV" id="qbY-kL-bst"/>
                         <outlet property="movieNameLabel" destination="s8F-5a-p1p" id="aGM-XM-Yhm"/>
+                        <outlet property="overviewInfoLabel" destination="wQt-rw-RbM" id="cVe-gX-Qb2"/>
                         <outlet property="overviewTextView" destination="CW9-4T-lMV" id="ByJ-2s-h00"/>
                         <outlet property="posterImage" destination="mYM-CQ-t7T" id="LIU-PD-hF3"/>
                         <outlet property="releaseDateLabel" destination="ZCq-VO-n6e" id="R15-cN-Tnw"/>
+                        <outlet property="widthLandscapeImageConstraintRxC" destination="brM-G8-4dm" id="aAu-Iz-dkY"/>
+                        <outlet property="widthtLandscapeImageConstraintCxC" destination="gcZ-Bw-yAX" id="G4d-Ub-DMK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kMi-Bd-JcZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

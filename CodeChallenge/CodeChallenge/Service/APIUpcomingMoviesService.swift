@@ -14,7 +14,6 @@ class APIUpcomingMoviesService {
     private static var sharedInstance: APIUpcomingMoviesService?
     var currentPage: Int = 0
     var totalPages: Int = 0
-    var movies: [Movie] = []
     var genres: [Int: String] = [:]
     var isLoadingMoreMovies: Bool = false
     
@@ -32,18 +31,19 @@ class APIUpcomingMoviesService {
         return checkedSharedInstance
     }
     
-    func getUpcomingMovies() {
+    func getUpcomingMovies(completion: @escaping ([Movie]?)->()) {
         self.currentPage += 1
         self.isLoadingMoreMovies = true
         let parameters: [String: Any] = [APIParameters.apiKey: APIConstants.key, APIParameters.page: self.currentPage]
         Alamofire.request("\(APIConstants.baseUrl)\(APIConstants.getUpcomingMovies)", method: .get, parameters: parameters).responseJSON { (response) in
             guard let valueDict = response.value as? [String: Any], let resultsArrays = valueDict[UpcomingMoviesAPIFields.results] as? [[String: Any]] else {
+                completion(nil)
                 return
             }
-
+            var movies: [Movie] = []
             for movie in resultsArrays {
                 if let movie = Movie.parse(dict: movie) {
-                    self.movies.append(movie)
+                    movies.append(movie)
                 }
             }
             
@@ -52,9 +52,7 @@ class APIUpcomingMoviesService {
             }
             
             self.isLoadingMoreMovies = false
-            DispatchQueue.main.async {
-                NotificationCenter.default.post(name: .FetchUpcomingMoviesDidFinish, object: nil)
-            }
+            completion(movies)
         }
     }
     

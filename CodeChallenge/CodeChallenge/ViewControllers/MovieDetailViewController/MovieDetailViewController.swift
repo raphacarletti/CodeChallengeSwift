@@ -19,7 +19,13 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var genreLabel: UILabel!
     @IBOutlet weak var overviewTextView: UITextView!
+    @IBOutlet weak var overviewInfoLabel: UILabel!
+    @IBOutlet weak var genreInfoLabel: UILabel!
     
+    //Image constraints
+    @IBOutlet weak var heightPortraitImageConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthLandscapeImageConstraintRxC: NSLayoutConstraint!
+    @IBOutlet weak var widthtLandscapeImageConstraintCxC: NSLayoutConstraint!
     
     var movie: Movie?
     
@@ -38,10 +44,30 @@ class MovieDetailViewController: UIViewController {
     func setUpUI() {
         if let movie = self.movie {
             self.movieNameLabel.text = movie.title
-            self.posterImage.image = movie.image
             self.releaseDateLabel.text = movie.releaseDate
-            self.overviewTextView.text = movie.overview
-            self.genreLabel.text = movie.genre
+            
+            if let image = movie.image {
+                self.posterImage.image = image
+            } else {
+                self.heightPortraitImageConstraint.constant = 0
+                self.widthLandscapeImageConstraintRxC.constant = 0
+                self.widthtLandscapeImageConstraintCxC.constant = 0
+                self.posterImage.isHidden = true
+            }
+        
+            if movie.overview != "" {
+                self.overviewTextView.text = movie.overview
+            } else {
+                self.overviewTextView.isHidden = true
+                self.overviewInfoLabel.isHidden = true
+            }
+            
+            if movie.genre != nil {
+                self.genreLabel.text = movie.genre
+            } else {
+                self.genreLabel.isHidden = true
+                self.genreInfoLabel.isHidden = true
+            }
         }
     }
 }
