@@ -9,7 +9,12 @@
 import UIKit
 
 class MovieDetailViewController: UIViewController {
-    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var movieNameLabel: UILabel! {
+        didSet {
+            self.movieNameLabel.font = UIFont.boldSystemFont(ofSize: 19)
+            self.movieNameLabel.textColor = UIColor.white
+        }
+    }
     @IBOutlet weak var posterImage: UIImageView! {
         didSet {
             self.posterImage.clipsToBounds = true
@@ -18,16 +23,34 @@ class MovieDetailViewController: UIViewController {
     }
     @IBOutlet weak var releadeDateInfo: UILabel! {
         didSet {
-            self.releadeDateInfo.textColor = UIColor.mediumGrayMovieDetail
+            self.releadeDateInfo.textColor = UIColor.semiTranslucentWhite
         }
     }
-    @IBOutlet weak var releaseDateLabel: UILabel!
-    @IBOutlet weak var genreLabel: UILabel!
-    @IBOutlet weak var overviewTextView: UITextView!
-    @IBOutlet weak var overviewInfoLabel: UILabel!
+    @IBOutlet weak var releaseDateLabel: UILabel! {
+        didSet {
+            self.releaseDateLabel.textColor = UIColor.white
+        }
+    }
+    @IBOutlet weak var genreLabel: UILabel! {
+        didSet {
+            self.genreLabel.textColor = UIColor.white
+        }
+    }
+    @IBOutlet weak var overviewTextView: UITextView! {
+        didSet {
+            self.overviewTextView.backgroundColor = UIColor.darkBlueZodiac
+            self.overviewTextView.textColor = UIColor.white
+            self.overviewTextView.isEditable = false
+        }
+    }
+    @IBOutlet weak var overviewInfoLabel: UILabel! {
+        didSet {
+            self.overviewInfoLabel.textColor = UIColor.semiTranslucentWhite
+        }
+    }
     @IBOutlet weak var genreInfoLabel: UILabel! {
         didSet {
-            self.genreInfoLabel.textColor = UIColor.mediumGrayMovieDetail
+            self.genreInfoLabel.textColor = UIColor.semiTranslucentWhite
         }
     }
     
@@ -52,6 +75,7 @@ class MovieDetailViewController: UIViewController {
     
     func setUpUI() {
         if let movie = self.movie {
+            self.view.backgroundColor = UIColor.darkBlueZodiac
             self.movieNameLabel.text = movie.title
             self.releaseDateLabel.text = movie.releaseDate
             

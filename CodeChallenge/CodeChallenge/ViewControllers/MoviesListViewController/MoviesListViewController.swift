@@ -15,6 +15,7 @@ class MoviesListViewController: UIViewController {
             self.moviesListTableView.dataSource = self
             self.moviesListTableView.rowHeight = UITableViewAutomaticDimension
             self.moviesListTableView.estimatedRowHeight = 52
+            self.moviesListTableView.separatorStyle = .none
             self.moviesListTableView.register(MoviesListTableViewCell.self, forCellReuseIdentifier: String(describing: MoviesListTableViewCell.self))
             self.moviesListTableView.register(UINib(nibName: String(describing: MoviesListTableViewCell.self), bundle: nil), forCellReuseIdentifier: String(describing: MoviesListTableViewCell.self))
         }
@@ -36,12 +37,19 @@ class MoviesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //Setup Navigation
+        self.navigationItem.title = "Movies"
+        self.navigationController?.navigationBar.tintColor = UIColor.darkBlueZodiac
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.darkBlueZodiac]
+        self.navigationController?.navigationBar.isTranslucent = false
+        
         // Setup the Search Controller
         self.searchController.obscuresBackgroundDuringPresentation = false
         self.searchController.searchBar.placeholder = "Search Movie..."
         self.navigationItem.searchController = searchController
         self.definesPresentationContext = true
         searchController.searchBar.delegate = self
+        self.moviesListTableView.backgroundColor = UIColor.TunaGray
         
         APIUpcomingMoviesService.getSharedInstance().getAllMovieGenres {
             APIUpcomingMoviesService.getSharedInstance().getUpcomingMovies(completion: { (movies) in
@@ -119,7 +127,7 @@ extension MoviesListViewController: UITableViewDataSource {
         }
         
         let movie = self.filteredMovies[indexPath.row]
-        cell.setUpCellWith(movie: movie)
+        cell.setUpCellWith(movie: movie, isOdd: indexPath.row%2==0)
         return cell
     }
     

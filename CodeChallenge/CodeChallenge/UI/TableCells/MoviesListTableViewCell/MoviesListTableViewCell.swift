@@ -15,21 +15,27 @@ class MoviesListTableViewCell: UITableViewCell {
             self.posterImage.clipsToBounds = true
         }
     }
-    @IBOutlet weak var movieNameLabel: UILabel!
+    @IBOutlet weak var movieNameLabel: UILabel! {
+        didSet {
+            self.movieNameLabel.textColor = UIColor.white
+            self.movieNameLabel.font = UIFont.boldSystemFont(ofSize: 15)
+        }
+    }
     @IBOutlet weak var genreLabel: UILabel! {
         didSet {
-            self.genreLabel.textColor = UIColor.lightGrayMovieList
+            self.genreLabel.textColor = UIColor.white
         }
     }
     @IBOutlet weak var releaseDateLabel: UILabel! {
         didSet {
-            self.releaseDateLabel.textColor = UIColor.lightGrayMovieList
+            self.releaseDateLabel.textColor = UIColor.semiTranslucentWhite
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        self.backgroundColor = UIColor.blueZodiac
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -38,7 +44,12 @@ class MoviesListTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func setUpCellWith(movie: Movie) {
+    func setUpCellWith(movie: Movie, isOdd: Bool) {
+        if isOdd {
+            self.backgroundColor = UIColor.blueZodiac
+        } else {
+            self.backgroundColor = UIColor.darkBlueZodiac
+        }
         self.movieNameLabel.text = movie.title
         self.releaseDateLabel.text = movie.releaseDate
         self.genreLabel.text = movie.genre ?? ""
@@ -47,6 +58,7 @@ class MoviesListTableViewCell: UITableViewCell {
         } else {
             self.posterImage.image = UIImage.movieImage
         }
+        self.posterImage.layer.cornerRadius = self.posterImage.frame.height/2
     }
     
 }

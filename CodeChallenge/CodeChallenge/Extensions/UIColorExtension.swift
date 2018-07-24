@@ -15,4 +15,17 @@ extension UIColor {
     public class var mediumGrayMovieDetail: UIColor {
         return UIColor(red: 147/255, green: 147/255, blue: 147/255, alpha: 1)
     }
+    
+    public class var blueZodiac: UIColor {
+        return UIColor(red: 17/255, green: 31/255, blue: 71/255, alpha: 1)
+    }
+    public class var darkBlueZodiac: UIColor {
+        return UIColor(red: 20/255, green: 36/255, blue: 84/255, alpha: 1)
+    }
+    public class var TunaGray: UIColor {
+        return UIColor(red: 57/255, green: 57/255, blue: 64/255, alpha: 1)
+    }
+    public class var semiTranslucentWhite: UIColor {
+        return UIColor.white.withAlphaComponent(0.8)
+    }
 }
